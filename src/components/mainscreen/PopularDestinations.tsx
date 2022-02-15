@@ -2,7 +2,7 @@ import { DestinationCard } from "./DestinationCard"
 
 export const PopularDestinations = () => {
     return (
-        <div>
+        <div className="mt-10">
             <h1>Popular destinations right now</h1>
             <br />
             <div className="destinationcards-wrapper">

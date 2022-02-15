@@ -1,18 +1,30 @@
 .mainscreen__navbar{
     align-items: center;
+    box-sizing: border-box;
     display: flex;
     min-height: 9vh;
     justify-content: space-between;
-    width: 100%;
+    width: 100vw;
     background-color: $secondary;
+
+    @media (max-width: $breakpoint-medium) {
+        display: grid;
+        grid-template-columns: repeat( 1, 1fr );
+        text-align: center;
+    }
 }
 
 .mainscreen__home-logo{
     box-sizing: border-box;
     color: $primary;
     font-size: 2.3em;
-    padding-left: 30px;
+    padding-left: 1.7em;
     text-shadow: 2px 2px 3px $shadow;
+
+    @media (max-width: $breakpoint-medium) {
+        width: 100%;
+        padding-top: 0.5em;
+    }
 }
 
 .mainscreen__mis-reservas{
@@ -20,29 +32,43 @@
     color: $hover;
     font-size: 1.3em;
     font-weight: bold;
-    padding: auto;
-    width: 200px;
+    padding: 1.7em;
+    width: auto;
 
     &:hover{
         text-shadow: 1px 1px 3px lightgray;
         color: $shadow;
     }
+
+    @media (max-width: $breakpoint-medium) {
+        width: 100%;
+    }
 }
 
 .mainscreen__searchflight{
-    align-items: stretch;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    // background-color: red;
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr );
     height: 10%;
+
+    @media (max-width: $breakpoint-medium) {
+        grid-template-columns: repeat( 1, 1fr );
+    }
+}
+
+.mainscreen__flight-menu{
+    align-items: center;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .mainscreen__places{
     align-items: center;
     border: 2px solid #6b705c;
     background-color: #e9ecef5b;
-    box-shadow: 2px 2px 2px 2px $box-shadow;
     border-radius: 10px;
     box-sizing: border-box;
     display: flex;
@@ -53,12 +79,9 @@
 }
 
 .mainscreen__dates{
-    align-items: center;
     box-sizing: border-box;
-    border-color: $primary;
-    box-shadow: 2px 2px 2px 2px $box-shadow;
-    display: flex;
-    flex-direction: column;
+    border: 2px solid #6b705c;
+    display: inline-block;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -66,15 +89,11 @@
 }
 
 .mainscreen__people{
-    align-content: space-around;
     align-items: center;
     border-color: $primary;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px $box-shadow;
-    display: flex;;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    border: 2px solid #6b705c;
+    display: flex;
     margin: 10px;
     padding: 20px;
     width: 35%;
@@ -89,40 +108,10 @@
     font-weight: bolder;
     font-size: 1em;
     border-radius: 35px;
-    width: 35%;
+    width: 40%;
     padding: 20px;
 }
 
-// TODO: check
-.limit-background{
-    align-items: center;
-    background-color: #f8f9fa;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    flex-direction: row;
-    flex-grow: 1;
-    max-width: 50%;
-}
 
-.destinationcards-wrapper{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: space-evenly;
-}
 
-// .viewflights-item{
-//     display: flex;
-//     display: inline-block;
-//     align-items: center;
-//     flex-wrap: wrap;
-// }
 
-.gallery{
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-}

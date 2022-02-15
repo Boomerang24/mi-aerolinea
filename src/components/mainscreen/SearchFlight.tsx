@@ -1,41 +1,32 @@
-import { IoMdArrowDropdown } from 'react-icons/io'
 import { ImAirplane } from 'react-icons/im';
-import { TravelSlider } from './TravelSlider';
+import CityPicker from './CityPicker';
+import DateTimePicker from './DateTimePicker';
+import Passengers from './Passengers';
 
 export const SearchFlight = () => {
     return (
-        <div className="mainscreen__searchflight">
-            <div className="limit-background">
-                <div className="mainscreen__places">
-                    <h3>-City-</h3>
-                    <span>Origin</span>
-                </div>
-                <div className="mainscreen__places">
-                    <h3>-City-</h3>
-                    <span>Destination</span>
-                </div>
-                <div className="mainscreen__dates">
-                    <span>Departure</span>
-                    <h3>Sat, 12 feb, 2022</h3>
-                </div>
-                <div className="mainscreen__dates">
-                    <span>Return</span>
-                    <h3>Sun, 13 feb, 2022</h3>
-                </div>
-                <div className="mainscreen__people">
-                    <div>
-                        <span>Passangers</span>
-                        <p>1 Adult</p>
-                    </div>
-                    <IoMdArrowDropdown />
-                </div>
-                <button className='mainscreen__flight-button'>
-                    Search flights <span><ImAirplane /></span>
-                </button>
+        <div className="mainscreen__flight-menu">
+            <div className="mainscreen__places">
+                <h3>Origin</h3>
+                <CityPicker />
             </div>
-            <div className="gallery">
-                <TravelSlider />
+            <div className="mainscreen__places">
+                <h3>Destination</h3>
+                <CityPicker />
+                {/* <span>Destination</span> */}
             </div>
+            <div className="mainscreen__dates">
+                <DateTimePicker dateLabel='Destination Date'/>
+            </div>
+            <div className="mainscreen__dates">
+                <DateTimePicker dateLabel='Return Date'/>
+            </div>
+            <div className="mainscreen__people">
+                <Passengers />
+            </div>
+            <button className='mainscreen__flight-button'>
+                Search flights <span><ImAirplane /></span>
+            </button>
         </div>
     )
 }
