@@ -1,3 +1,4 @@
+import { FaLuggageCart } from 'react-icons/fa'
 import { MdOutlineAirplaneTicket } from 'react-icons/md'
 
 export const Navbar = () => {
@@ -7,9 +8,12 @@ export const Navbar = () => {
                 miAerolinea
                 <MdOutlineAirplaneTicket />
             </h1>
-            <span className='mainscreen__mis-reservas pointer'>
-                Mis Reservas
-            </span>
+            <div className='mainscreen__mis-reservas pointer'>
+                <FaLuggageCart className='mainscreen__cart-logo'/>
+                <span className='hide-element_medium-breakpoint'>
+                    Checkout
+                </span>
+            </div>
         </div>
     )
 }

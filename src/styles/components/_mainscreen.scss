@@ -21,27 +21,66 @@
     padding-left: 1.7em;
     text-shadow: 2px 2px 3px $shadow;
 
+    &:hover{
+        text-shadow: 1px 1px 3px $hover;
+    }
+
     @media (max-width: $breakpoint-medium) {
-        width: 100%;
+        margin: auto;
         padding-top: 0.5em;
+        padding-left: 0.2em;
+    }
+
+    @media (max-width: $breakpoint-small) {
+        font-size: 1.7em;
+        margin: auto;
+        padding-top: 0.5em;
+        padding-left: 0.2em;
     }
 }
 
 .mainscreen__mis-reservas{
+    align-content: center;
+    align-items: center;
     box-sizing: border-box;
-    color: $hover;
-    font-size: 1.3em;
+    color: #023e8a;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.6em;
     font-weight: bold;
-    padding: 1.7em;
+    justify-content: center;
+    padding-left: 0.3em;
+    padding-right: 2.3em;
     width: auto;
 
     &:hover{
         text-shadow: 1px 1px 3px lightgray;
         color: $shadow;
     }
+}
+
+.hide-element_medium-breakpoint{
+    @media (max-width: $breakpoint-medium) {
+        display: none;
+    }
+}
+
+.mainscreen__cart-logo{
+    padding: 0.3em;
+    text-align: center;
 
     @media (max-width: $breakpoint-medium) {
-        width: 100%;
+        position: fixed;
+        top: 0.25em;
+        right: 0.4em;
+        font-size: 1.7em;
+    }
+
+    @media (max-width: $breakpoint-small) {
+        font-size: 1.3em;
+        margin: auto;
+        padding-top: 0.5em;
+        padding-left: 0.2em;
     }
 }
 

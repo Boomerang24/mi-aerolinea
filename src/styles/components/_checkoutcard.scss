@@ -1,0 +1,25 @@
+.checkoutcard__card-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    border: 1px solid $box-shadow;
+    max-width: fit-content;
+    padding: 1em;
+    margin: 2em;
+    border-radius: 15px;
+}
+
+.checkoutcard__card-origin-destination{
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkoutcard__card-details > p{
+    padding: 0.7em;
+}
+
+.checkoutcard__card-summary{
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bolder;
+    margin-top: 1em;
+}
