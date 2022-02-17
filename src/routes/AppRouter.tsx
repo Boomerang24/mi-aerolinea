@@ -1,7 +1,8 @@
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { CheckFlightScreen } from '../components/checkflights/CheckFlightScreen'
 import { CheckoutScreen } from '../components/checkout/CheckoutScreen'
 import { MainScreen } from '../components/mainscreen/MainScreen'
-import { Navbar } from '../components/mainscreen/Navbar';
+import { Navbar } from '../components/mainscreen/Navbar'
 
 export const AppRouter = () => {
     return (
@@ -9,8 +10,9 @@ export const AppRouter = () => {
             <Navbar />
             <Switch>
                 <Route path="/checkout" component={ CheckoutScreen } />
+                <Route path="/checkflight" component={ CheckFlightScreen } />
                     
-                <Route path="/" component={ MainScreen }/>
+                <Route path="/*" component={ MainScreen }/>
             </Switch>
         </>
     )

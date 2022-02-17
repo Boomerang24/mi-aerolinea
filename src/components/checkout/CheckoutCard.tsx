@@ -9,13 +9,12 @@ export const CheckoutCard = () => {
             </div>
             <div className="checkoutcard__card-origin-destination">
                 <h3>Mexico</h3>
-                <h3>Cancun</h3>                    
+                <h3>Cancun</h3>
             </div>
             <hr />
             <div className="checkoutcard__card-details">
                 <p>Time of flight - 10:30am CST</p>
-                <p>Adult - 4</p>
-                <p>Child - 2</p>
+                <p>Tickets - 4</p>
             </div>
             <hr />
             <div className="checkoutcard__card-summary">

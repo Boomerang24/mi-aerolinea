@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { uiCloseModal } from '../../actions/ui';
 
 const customStyles = {
   content: {
@@ -15,27 +17,22 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 export const CheckoutModal = () => {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const dispatch = useDispatch();
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // subtitle.style.color = '#f00';
-  }
+  const { modalOpen } = useSelector((state: RootStateOrAny) => state.ui);
 
-  function closeModal() {
-    setIsOpen(false);
+  const closeModal = () => {
+    dispatch( uiCloseModal() );
   }
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
 
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
       <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
+        isOpen={modalOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"

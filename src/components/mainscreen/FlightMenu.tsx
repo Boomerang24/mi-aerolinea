@@ -1,8 +1,18 @@
+import { MouseEvent } from 'react';
 import { ImAirplane } from 'react-icons/im';
+import { useHistory } from 'react-router-dom';
 import CityPicker from './CityPicker';
 import { PassengersButtons } from './PassengersButtons';
 
-export const SearchFlight = () => {
+export const FlightMenu = () => {
+
+    const history = useHistory();
+
+    const goCheckFlight = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        history.push('/checkflight');
+    }
+
     return (
         <div className="mainscreen__flight-menu">
             <div className='mainscreen__flight-wrapper'>
@@ -33,7 +43,7 @@ export const SearchFlight = () => {
                     <h4>Passengers</h4>
                     <PassengersButtons />
                 </div>
-                <button className='mainscreen__flight-button'>
+                <button className='mainscreen__flight-button' onClick={ goCheckFlight }>
                     Search flights <span><ImAirplane /></span>
                 </button>
             </div>
