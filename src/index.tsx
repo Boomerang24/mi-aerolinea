@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import MyAirline from './MyAirline';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <MyAirline />
-  </React.StrictMode>,
+  <React.Fragment>
+    <BrowserRouter>
+      <MyAirline />
+    </BrowserRouter>
+  </React.Fragment>,
   document.getElementById('root')
 );

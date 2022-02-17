@@ -39,7 +39,7 @@
     }
 }
 
-.mainscreen__mis-reservas{
+.mainscreen__checkout{
     align-content: center;
     align-items: center;
     box-sizing: border-box;
@@ -106,36 +106,58 @@
 
 .mainscreen__places{
     align-items: center;
-    border: 2px solid #6b705c;
     background-color: #e9ecef5b;
     border-radius: 10px;
+    border: 2px solid #6b705c;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    padding: 70px;
+    margin: 5px;
+    padding: 5em 2.3em;
     width: 40%;
 }
 
 .mainscreen__dates{
-    box-sizing: border-box;
-    border: 2px solid #6b705c;
-    display: inline-block;
-    padding: 20px;
-    margin: 10px;
     border-radius: 10px;
+    border: 2px solid #6b705c;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 5px;
+    padding: 3.5em 2.2em;
     width: 40%;
+}
+
+.mainscreen__dates > p {
+    padding-top: 2.3em;
+}
+
+.mainscreen__flight-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row;
+}
+
+.mainscreen__wrapper-people_buttton{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
 }
 
 .mainscreen__people{
     align-items: center;
-    border-color: $primary;
+    border-color: #ade8f4;
     border-radius: 10px;
     border: 2px solid #6b705c;
     display: flex;
-    margin: 10px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 5px;
     padding: 20px;
-    width: 35%;
+    width: 40%;
 }
 
 .mainscreen__flight-button{

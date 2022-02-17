@@ -25,6 +25,7 @@ export default function ControlledOpenSelect() {
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setCityCode(event.target.value as number);
+    // console.log(event.target.value);
   };
 
   const handleClose = () => {
