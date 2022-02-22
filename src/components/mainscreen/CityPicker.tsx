@@ -1,31 +1,31 @@
-import { useState } from 'react';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { useState } from "react";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     button: {
-      display: 'block',
+      display: "block",
       marginTop: theme.spacing(2),
     },
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
     },
-  }),
+  })
 );
 
-export default function ControlledOpenSelect() {
+export const CityPicker = () => {
   const classes = useStyles();
-  const [cityCode, setCityCode] = useState<string | number>('');
+  const [cityCode, setCityCode] = useState<string | number>("");
   const [open, setOpen] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setCityCode(event.target.value as number);
-    // console.log(event.target.value);
+    console.log(event.target.value);
   };
 
   const handleClose = () => {
@@ -56,4 +56,4 @@ export default function ControlledOpenSelect() {
       </FormControl>
     </div>
   );
-}
+};
