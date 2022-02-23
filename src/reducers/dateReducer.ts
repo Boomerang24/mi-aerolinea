@@ -28,6 +28,9 @@ export const dateReducer = (state = initialDates, action: DateAction) => {
         flightType: action.payload,
       };
 
+    case types.resetDates:
+      return initialDates;
+
     default:
       return state;
   }

@@ -13,8 +13,8 @@ export const CheckoutScreen = () => {
   return (
     <div className="screen-wrapper">
       <h1>Current reservations - 2</h1>
-      <CheckoutCard />
-      <CheckoutCard />
+      {/* <CheckoutCard />
+      <CheckoutCard /> */}
       <button
         //TODO: create button styles
         className="mainscreen__flight-button"
