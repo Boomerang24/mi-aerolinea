@@ -4,6 +4,13 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { cities } from "../../data/citiesData";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import {
+  setCityType,
+  setDestinationCity,
+  setOriginCity,
+} from "../../actions/cities";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,14 +25,28 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const CityPicker = () => {
+interface CityPickerProps {
+  site: string;
+}
+
+export const CityPicker = ({ site }: CityPickerProps) => {
   const classes = useStyles();
   const [cityCode, setCityCode] = useState<string | number>("");
   const [open, setOpen] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setCityCode(event.target.value as number);
-    console.log(event.target.value);
+  const dispatch = useDispatch();
+  const { cityType } = useSelector((state: RootStateOrAny) => state.cities);
+
+  const handleChange = (
+    event: React.ChangeEvent<{ value: unknown | string }>
+  ) => {
+    const { value } = event.target;
+    setCityCode(value as string);
+    if (cityType === "origin") {
+      dispatch(setOriginCity(value));
+    } else {
+      dispatch(setDestinationCity(value));
+    }
   };
 
   const handleClose = () => {
@@ -34,7 +55,10 @@ export const CityPicker = () => {
 
   const handleOpen = () => {
     setOpen(true);
+    dispatch(setCityType(site));
   };
+
+  const filteredCities = cities.filter((city) => city.name !== "Cancun");
 
   return (
     <div>
@@ -49,9 +73,11 @@ export const CityPicker = () => {
           value={cityCode}
           onChange={handleChange}
         >
-          <MenuItem value={10}>Mexico City</MenuItem>
-          <MenuItem value={20}>Cancun</MenuItem>
-          <MenuItem value={30}>Los Cabos</MenuItem>
+          {filteredCities.map((city) => (
+            <MenuItem key={city.id} value={city.name}>
+              {city.name}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </div>

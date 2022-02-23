@@ -13,6 +13,7 @@ export const dateReducer = (state = initialDates, action: DateAction) => {
       return {
         ...state,
         departureDate: action.payload,
+        returnDate: initialDates.returnDate,
       };
 
     case types.returnDate:

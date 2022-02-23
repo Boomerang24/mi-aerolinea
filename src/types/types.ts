@@ -8,4 +8,9 @@ export const types = {
   departureDate: "[date] Departure Date",
   returnDate: "[date] Return Date",
   flightType: "[date] Set Flight Type",
+
+  originCity: "[city] Origin City",
+  destinationCity: "[city] Destination City",
+  cityType: "[city] Set City Type",
+  resetCities: "[city] Reset Cities",
 };

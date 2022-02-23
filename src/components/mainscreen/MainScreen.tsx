@@ -1,5 +1,5 @@
 import React from "react";
-import { SliderData } from "../../data/SliderData";
+import { SliderData } from "../../data/sliderData";
 import { PopularDestinations } from "./PopularDestinations";
 import { FlightMenu } from "./FlightMenu";
 import { TravelSlider } from "./TravelSlider";

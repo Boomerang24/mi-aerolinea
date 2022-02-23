@@ -33,11 +33,11 @@ export const FlightMenu = () => {
       <div className="mainscreen__flight-wrapper">
         <div className="mainscreen__places">
           <h3>Origin</h3>
-          <CityPicker />
+          <CityPicker site="origin" />
         </div>
         <div className="mainscreen__places">
           <h3>Destination</h3>
-          <CityPicker />
+          <CityPicker site="destination" />
         </div>
       </div>
       <div className="mainscreen__flight-wrapper">
