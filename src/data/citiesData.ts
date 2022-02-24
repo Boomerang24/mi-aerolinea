@@ -8,7 +8,6 @@ export const cities = [
     id: 20,
     name: "Cancun",
     ticketPrice: 2500,
-    hidden: true,
   },
   {
     id: 30,
@@ -17,7 +16,7 @@ export const cities = [
   },
   {
     id: 40,
-    name: "Ixtapa / Zihuatanejo",
+    name: "Ixtapa/Zihuatanejo",
     ticketPrice: 1200,
   },
   {

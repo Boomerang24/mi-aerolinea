@@ -1,32 +1,33 @@
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { doCounterIncrease, doCounterDecrease } from "../../actions/counter";
+import {
+  doPassengerIncrease,
+  doPassengerDecrease,
+} from "../../actions/tickets";
 
 export const PassengersButtons = () => {
   const dispatch = useDispatch();
 
-  const { counter } = useSelector(
-    (state: RootStateOrAny) => state.ticketCounter
-  );
+  const { passengers } = useSelector((state: RootStateOrAny) => state.tickets);
 
-  const counterIncrease = () => {
-    dispatch(doCounterIncrease(1));
+  const PassengersIncrease = () => {
+    dispatch(doPassengerIncrease(1));
   };
 
-  const counterDecrease = () => {
-    counter >= 1 && dispatch(doCounterDecrease(1));
+  const PassengersDecrease = () => {
+    passengers >= 1 && dispatch(doPassengerDecrease(1));
   };
 
   return (
     <div className="buttonsContainer">
       <button
         className="buttonMinus"
-        disabled={!counter}
-        onClick={() => counterDecrease()}
+        disabled={!passengers}
+        onClick={() => PassengersDecrease()}
       >
         -
       </button>
-      <div className="countLabel">{counter}</div>
-      <button className="buttonAdd" onClick={() => counterIncrease()}>
+      <div className="countLabel">{passengers}</div>
+      <button className="buttonAdd" onClick={() => PassengersIncrease()}>
         +
       </button>
     </div>

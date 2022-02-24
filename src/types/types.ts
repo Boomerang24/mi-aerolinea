@@ -2,8 +2,9 @@ export const types = {
   uiOpenModal: "[ui] Open Modal",
   uiCloseModal: "[ui] Close Modal",
 
-  counterIncrease: "[counter] Increase Counter",
-  counterDecrease: "[counter] Decrease Counter",
+  passengersIncrease: "[ticket] Increase Passengers",
+  passengersDecrease: "[ticket] Decrease Passengers",
+  getFlightPrice: "[ticket] Get Flight Ticket Price", //TODO: Borrar
 
   departureDate: "[date] Departure Date",
   returnDate: "[date] Return Date",
@@ -14,4 +15,8 @@ export const types = {
   destinationCity: "[city] Destination City",
   cityType: "[city] Set City Type",
   resetCities: "[city] Reset Cities",
+
+  selectedDepartureFlight: "[flight] Selected Departure Flight",
+  selectedReturnFlight: "[flight] Selected Return Flight",
+  availableFlights: "[flight] Current Available Flights",
 };

@@ -9,11 +9,18 @@ import { PassengersButtons } from "./PassengersButtons";
 
 import { uiOpenModal } from "../../actions/ui";
 import { setFlightType } from "../../actions/date";
+import { useFlights } from "../../hooks/useFlights";
+import { setAvailableFlights } from "../../actions/selectedFlight";
 
 export const FlightMenu = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const { passengers } = useSelector((state: RootStateOrAny) => state.tickets);
+
+  const { originCity, destinationCity } = useSelector(
+    (state: RootStateOrAny) => state.cities
+  );
   const { departureDate, returnDate } = useSelector(
     (state: RootStateOrAny) => state.flightDates
   );
@@ -21,6 +28,14 @@ export const FlightMenu = () => {
   const goCheckFlight = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     history.push("/checkflight");
+    const { availableFlights } = useFlights({
+      originCity,
+      passengers,
+      destinationCity,
+      departureDate,
+      returnDate,
+    });
+    dispatch(setAvailableFlights(availableFlights));
   };
 
   const handleFlight = (flightType: string) => {

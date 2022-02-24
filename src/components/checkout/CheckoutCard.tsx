@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { CheckoutCardProps } from "./interfaces/interfaces";
 
 export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
@@ -7,20 +8,33 @@ export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
     departureDate,
     flightHour,
     ticketPrice,
-    ticketCounter,
+    passengers,
+    selected,
   } = props;
 
-  const total = ticketPrice * ticketCounter;
+  const total = ticketPrice * passengers;
+
+  const [selectedState, setSelectedState] = useState(selected);
+
+  const handleClick = () => {
+    //TODO: primero hacer el que modifique todos (quitar el selected = false)
+    setSelectedState(!selectedState);
+  };
 
   return (
-    <div className="checkoutcard__card-wrapper">
+    <div
+      className={`checkoutcard__card-wrapper pointer ${
+        selectedState && "selected-card"
+      }`}
+      onClick={() => handleClick()}
+    >
       <div className="checkoutcard__card-origin-destination">
         <p>Origin</p>
         <p>Destination</p>
       </div>
-      <div className="checkoutcard__card-origin-destination">
-        <h3>{originCity}</h3>
-        <h3>{destinationCity}</h3>
+      <div className="checkoutcard__card-origin-destination mt-10">
+        <h4>{originCity}</h4>
+        <h4>{destinationCity}</h4>
       </div>
       <hr />
       <div className="checkoutcard__card-details">
@@ -38,7 +52,7 @@ export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
         </div>
         <div className="checkoutcard__card-details-wrapper">
           <p>Passengers</p>
-          <p>{ticketCounter}</p>
+          <p>{passengers}</p>
         </div>
       </div>
       <hr />

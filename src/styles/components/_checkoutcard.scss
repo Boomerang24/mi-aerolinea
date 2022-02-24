@@ -6,6 +6,10 @@
   padding: 1em;
   margin: 2em;
   border-radius: 15px;
+
+  &:hover {
+    box-shadow: 0 2px 4px 0 $box-shadow;
+  }
 }
 
 .checkoutcard__card-origin-destination {
@@ -30,4 +34,8 @@
   justify-content: flex-end;
   font-weight: bolder;
   margin-top: 1em;
+}
+
+.selected-card {
+  background-color: $primary;
 }
