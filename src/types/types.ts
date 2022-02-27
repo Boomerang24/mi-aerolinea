@@ -4,7 +4,6 @@ export const types = {
 
   passengersIncrease: "[ticket] Increase Passengers",
   passengersDecrease: "[ticket] Decrease Passengers",
-  getFlightPrice: "[ticket] Get Flight Ticket Price", //TODO: Borrar
 
   departureDate: "[date] Departure Date",
   returnDate: "[date] Return Date",
@@ -19,4 +18,6 @@ export const types = {
   selectedDepartureFlight: "[flight] Selected Departure Flight",
   selectedReturnFlight: "[flight] Selected Return Flight",
   availableFlights: "[flight] Current Available Flights",
+  toggleSelectedCard: "[flight] Toggle Selected Attribute In Card",
+  resetSelectedCards: "[flight] Resets all CheckoutCards to false",
 };

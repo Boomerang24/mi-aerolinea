@@ -3,7 +3,6 @@ import { CounterAction } from "../actions/tickets";
 
 export const initialCounter = {
   passengers: 1,
-  flightPrice: 0,
 };
 
 export const ticketsReducer = (

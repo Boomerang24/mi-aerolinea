@@ -10,13 +10,13 @@ interface useFlightsProps {
 }
 
 export const useFlights = ({
-  originCity: cityId,
+  originCity,
   passengers,
   destinationCity,
   departureDate,
   returnDate,
 }: useFlightsProps) => {
-  const selectedCity = cities.filter((city) => city.id === cityId);
+  const selectedCity = cities.filter((city) => city.id === originCity);
   const destinationName = cities.filter((city) => city.id === destinationCity);
 
   const availableFlights = flightHours.map((hour, id) => ({
@@ -35,5 +35,5 @@ export const useFlights = ({
     availableFlights,
   };
 
-  // TODO: return debe de ser un dispatch a store (Array)
+  // TODO: (Opcional) return debe de ser un dispatch a store (Array)
 };

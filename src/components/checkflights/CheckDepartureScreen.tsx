@@ -1,19 +1,31 @@
 import React from "react";
-import { RootStateOrAny, useSelector } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import {
+  resetSelectedCards,
+  setSelectedDeparture,
+} from "../../actions/selectedFlight";
 import { CheckoutCard } from "../checkout/CheckoutCard";
 import { CheckoutCardProps } from "../checkout/interfaces/interfaces";
 
-export const CheckFlightScreen = () => {
+export const CheckDepartureScreen = () => {
   const history = useHistory();
-
-  const goCheckout = () => {
-    history.replace("/checkout");
-  };
+  const dispatch = useDispatch();
 
   const { availableFlights } = useSelector(
     (state: RootStateOrAny) => state.selectedFlights
   );
+
+  //TODO: Could be a hook
+  const getSelectedFlight = availableFlights.find((flight: any) => {
+    return flight.selected === true;
+  });
+
+  const goCheckReturn = () => {
+    history.replace("/check-return");
+    dispatch(resetSelectedCards());
+    dispatch(setSelectedDeparture(getSelectedFlight));
+  };
 
   return (
     <div className="screen-wrapper">
@@ -33,6 +45,7 @@ export const CheckFlightScreen = () => {
           }: CheckoutCardProps) => (
             <CheckoutCard
               key={id}
+              id={id}
               originCity={originCity}
               destinationCity={destinationCity}
               departureDate={departureDate}
@@ -45,16 +58,12 @@ export const CheckFlightScreen = () => {
           )
         )}
       </div>
-      <h1>Choose your return flight</h1>
-      <div className="checkflightscreen__flights-wrapper">
-        <h1>Wuenas</h1>
-      </div>
       <button
         //TODO: create button styles
         className="mainscreen__flight-button checkflightscreen__confirm-button"
-        onClick={goCheckout}
+        onClick={goCheckReturn}
       >
-        Confirm Selection
+        Confirm Flight
       </button>
     </div>
   );

@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  resetSelectedCards,
+  setSelectedCard,
+} from "../../actions/selectedFlight";
 import { CheckoutCardProps } from "./interfaces/interfaces";
 
 export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
@@ -14,17 +18,17 @@ export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
 
   const total = ticketPrice * passengers;
 
-  const [selectedState, setSelectedState] = useState(selected);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    //TODO: primero hacer el que modifique todos (quitar el selected = false)
-    setSelectedState(!selectedState);
+    dispatch(resetSelectedCards());
+    dispatch(setSelectedCard(props));
   };
 
   return (
     <div
       className={`checkoutcard__card-wrapper pointer ${
-        selectedState && "selected-card"
+        selected && "checkoutcard__selected-card"
       }`}
       onClick={() => handleClick()}
     >
@@ -40,6 +44,7 @@ export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
       <div className="checkoutcard__card-details">
         <div className="checkoutcard__card-details-wrapper">
           <p>Date of flight</p>
+          {/* //TODO: date is static */}
           <span>{departureDate}</span>
         </div>
         <div className="checkoutcard__card-details-wrapper">

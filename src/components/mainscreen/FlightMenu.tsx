@@ -25,9 +25,9 @@ export const FlightMenu = () => {
     (state: RootStateOrAny) => state.flightDates
   );
 
-  const goCheckFlight = (e: MouseEvent<HTMLButtonElement>) => {
+  const goCheckDeparture = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    history.push("/checkflight");
+    history.push("/check-departure");
     const { availableFlights } = useFlights({
       originCity,
       passengers,
@@ -79,7 +79,10 @@ export const FlightMenu = () => {
           <h4>Passengers</h4>
           <PassengersButtons />
         </div>
-        <button className="mainscreen__flight-button" onClick={goCheckFlight}>
+        <button
+          className="mainscreen__flight-button"
+          onClick={goCheckDeparture}
+        >
           Search flights{" "}
           <span>
             <ImAirplane />

@@ -1,10 +1,11 @@
 import { SelectedFlightAction } from "../actions/selectedFlight";
+import { CheckoutCardProps } from "../components/checkout/interfaces/interfaces";
 import { types } from "../types/types";
 
 const initialSelectedFlights = {
   departureFlight: "",
   returnFlight: "",
-  availableFlights: [],
+  availableFlights: [] as CheckoutCardProps[],
 };
 
 export const selectedFlightsReducer = (
@@ -28,6 +29,24 @@ export const selectedFlightsReducer = (
       return {
         ...state,
         availableFlights: action.payload,
+      };
+
+    case types.toggleSelectedCard:
+      return {
+        ...state,
+        availableFlights: state.availableFlights.map((flight) =>
+          flight.id === action.payload.id
+            ? { ...action.payload, selected: true }
+            : flight
+        ),
+      };
+
+    case types.resetSelectedCards:
+      return {
+        ...state,
+        availableFlights: state.availableFlights.map(
+          (flight) => (flight = { ...flight, selected: false })
+        ),
       };
 
     default:
