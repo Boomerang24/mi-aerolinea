@@ -1,5 +1,5 @@
 import { types } from "../types/types";
-import { CounterAction } from "../actions/tickets";
+import { Action } from "../actions/interfaces";
 
 export const initialCounter = {
   passengers: 1,
@@ -7,19 +7,19 @@ export const initialCounter = {
 
 export const ticketsReducer = (
   state = initialCounter,
-  action: CounterAction
+  action: Action<number>
 ) => {
   const { passengers } = state;
 
   switch (action.type) {
     case types.passengersIncrease:
       return {
-        passengers: passengers + action.payload.value,
+        passengers: passengers + action.payload,
       };
 
     case types.passengersDecrease:
       return {
-        passengers: passengers - action.payload.value,
+        passengers: passengers - action.payload,
       };
 
     default:

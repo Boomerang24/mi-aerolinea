@@ -1,5 +1,5 @@
-import { CityAction } from "../actions/cities";
-import { types } from "../types/types";
+import { Action } from "../actions/interfaces";
+import { types } from "../types";
 
 const initialCities = {
   originCity: "",
@@ -7,7 +7,10 @@ const initialCities = {
   cityType: null,
 };
 
-export const citiesReducer = (state = initialCities, action: CityAction) => {
+export const citiesReducer = (
+  state = initialCities,
+  action: Action<string | number>
+) => {
   switch (action.type) {
     case types.originCity:
       return {

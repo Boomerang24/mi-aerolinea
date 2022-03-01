@@ -1,23 +1,17 @@
-import { types } from "../types/types";
+import { types } from "../types";
+import { Action } from "./interfaces";
 
-export type DateAction = {
-  type: string;
-  payload: string;
-};
+export const setDeparture = (date: string): Action<string> => ({
+  type: types.departureDate,
+  payload: date,
+});
 
-export const setDeparture = (date: string): DateAction => {
-  return {
-    type: types.departureDate,
-    payload: date,
-  };
-};
-
-export const setReturn = (date: string): DateAction => ({
+export const setReturn = (date: string): Action<string> => ({
   type: types.returnDate,
   payload: date,
 });
 
-export const setFlightType = (flight: string): DateAction => ({
+export const setFlightType = (flight: string): Action<string> => ({
   type: types.flightType,
   payload: flight,
 });

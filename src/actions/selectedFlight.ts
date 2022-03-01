@@ -1,5 +1,5 @@
 import { CheckoutCardProps } from "../components/checkout/interfaces/interfaces";
-import { types } from "../types/types";
+import { types } from "../types";
 
 export type SelectedFlightAction = {
   type: string;

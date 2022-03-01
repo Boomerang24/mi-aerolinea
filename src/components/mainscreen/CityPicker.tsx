@@ -38,7 +38,8 @@ export const CityPicker = ({ site }: CityPickerProps) => {
   const { cityType } = useSelector((state: RootStateOrAny) => state.cities);
 
   const handleChange = (
-    event: React.ChangeEvent<{ value: unknown | number }>
+    // event: React.ChangeEvent<{ value: string | number }>
+    event: any
   ) => {
     const { value } = event.target;
     setCityCode(value as number);
@@ -71,7 +72,7 @@ export const CityPicker = ({ site }: CityPickerProps) => {
           onClose={handleClose}
           onOpen={handleOpen}
           value={cityCode}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e)}
         >
           {filteredCities.map((city) => (
             <MenuItem key={city.id} value={city.id}>

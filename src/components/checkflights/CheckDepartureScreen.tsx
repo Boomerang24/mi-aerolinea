@@ -21,7 +21,7 @@ export const CheckDepartureScreen = () => {
     return flight.selected === true;
   });
 
-  const goCheckReturn = () => {
+  const handleConfirmFlight = () => {
     history.replace("/check-return");
     dispatch(resetSelectedCards());
     dispatch(setSelectedDeparture(getSelectedFlight));
@@ -61,7 +61,7 @@ export const CheckDepartureScreen = () => {
       <button
         //TODO: create button styles
         className="mainscreen__flight-button checkflightscreen__confirm-button"
-        onClick={goCheckReturn}
+        onClick={handleConfirmFlight}
       >
         Confirm Flight
       </button>

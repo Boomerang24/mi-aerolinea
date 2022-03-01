@@ -1,5 +1,5 @@
-import { DateAction } from "../actions/date";
-import { types } from "../types/types";
+import { Action } from "../actions/interfaces";
+import { types } from "../types";
 
 const initialDates = {
   departureDate: new Date().toDateString(),
@@ -7,7 +7,7 @@ const initialDates = {
   flightType: null,
 };
 
-export const dateReducer = (state = initialDates, action: DateAction) => {
+export const dateReducer = (state = initialDates, action: Action<string>) => {
   switch (action.type) {
     case types.departureDate:
       return {

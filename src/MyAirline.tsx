@@ -2,11 +2,7 @@ import "./styles/styles.scss";
 import { AppRouter } from "./routes/AppRouter";
 
 function MyAirline() {
-  return (
-    <>
-      <AppRouter />
-    </>
-  );
+  return <AppRouter />;
 }
 
 export default MyAirline;

@@ -1,13 +1,12 @@
-import { types } from "../types/types";
+import { types } from "../types";
+import { Action } from "./interfaces";
 
-export type CounterAction = { type: string; payload: { value: number } };
-
-export const doPassengerIncrease = (value: number): CounterAction => ({
+export const doPassengerIncrease = (value: number): Action<number> => ({
   type: types.passengersIncrease,
-  payload: { value },
+  payload: value,
 });
 
-export const doPassengerDecrease = (value: number): CounterAction => ({
+export const doPassengerDecrease = (value: number): Action<number> => ({
   type: types.passengersDecrease,
-  payload: { value },
+  payload: value,
 });

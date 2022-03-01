@@ -1,5 +1,5 @@
 import { UiAction } from "../actions/ui";
-import { types } from "../types/types";
+import { types } from "../types";
 
 const initialState = {
   modalOpen: false,
