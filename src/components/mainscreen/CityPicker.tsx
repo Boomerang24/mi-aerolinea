@@ -39,6 +39,7 @@ export const CityPicker = ({ site }: CityPickerProps) => {
 
   const handleChange = (
     // event: React.ChangeEvent<{ value: string | number }>
+    //TODO: Check event type
     event: any
   ) => {
     const { value } = event.target;

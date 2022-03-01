@@ -3,9 +3,9 @@ import {
   resetSelectedCards,
   setSelectedCard,
 } from "../../actions/selectedFlight";
-import { CheckoutCardProps } from "./interfaces/interfaces";
+import { FlightProps } from "./interfaces";
 
-export const CheckoutCard = ({ ...props }: CheckoutCardProps) => {
+export const FlightCheckoutCard = ({ ...props }: FlightProps) => {
   const {
     originCity,
     destinationCity,

@@ -1,4 +1,4 @@
-export interface CheckoutCardProps {
+export interface FlightProps {
   id?: number;
   originCity: string;
   destinationCity: string;

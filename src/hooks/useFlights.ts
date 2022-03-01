@@ -1,3 +1,4 @@
+import { FlightProps } from "../components/checkout/interfaces";
 import { cities } from "../data/citiesData";
 import { flightHours } from "../data/flightHours";
 
@@ -15,7 +16,7 @@ export const useFlights = ({
   destinationCity,
   departureDate,
   returnDate,
-}: useFlightsProps) => {
+}: useFlightsProps): FlightProps[] => {
   const selectedCity = cities.filter((city) => city.id === originCity);
   const destinationName = cities.filter((city) => city.id === destinationCity);
 
@@ -31,9 +32,5 @@ export const useFlights = ({
     selected: false,
   }));
 
-  return {
-    availableFlights,
-  };
-
-  // TODO: (Opcional) return debe de ser un dispatch a store (Array)
+  return availableFlights;
 };

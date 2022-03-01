@@ -2,8 +2,8 @@ import React from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setSelectedReturn } from "../../actions/selectedFlight";
-import { CheckoutCard } from "../checkout/CheckoutCard";
-import { CheckoutCardProps } from "../checkout/interfaces/interfaces";
+import { FlightCheckoutCard } from "../checkout/CheckoutCard";
+import { FlightProps } from "../checkout/interfaces/interfaces";
 
 export const CheckReturnScreen = () => {
   const history = useHistory();
@@ -18,7 +18,7 @@ export const CheckReturnScreen = () => {
   });
 
   const goCheckout = () => {
-    history.replace("/checkout");
+    history.push("/checkout");
     dispatch(setSelectedReturn(getSelectedFlight));
   };
 
@@ -26,7 +26,7 @@ export const CheckReturnScreen = () => {
     <div className="screen-wrapper">
       <h1>Departure</h1>
       <div className="checkflightscreen__flights-wrapper disabled">
-        <CheckoutCard {...departureFlight} />
+        <FlightCheckoutCard {...departureFlight} />
       </div>
       <h1>Choose your return flight</h1>
       <div className="checkflightscreen__flights-wrapper">
@@ -41,8 +41,8 @@ export const CheckReturnScreen = () => {
             passengers,
             returnDate,
             selected,
-          }: CheckoutCardProps) => (
-            <CheckoutCard
+          }: FlightProps) => (
+            <FlightCheckoutCard
               key={id}
               id={id}
               originCity={destinationCity}

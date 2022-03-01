@@ -28,7 +28,7 @@ export const FlightMenu = () => {
   const goCheckDeparture = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     history.push("/check-departure");
-    const { availableFlights } = useFlights({
+    const availableFlights = useFlights({
       originCity,
       passengers,
       destinationCity,

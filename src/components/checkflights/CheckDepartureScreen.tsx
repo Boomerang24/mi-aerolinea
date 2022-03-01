@@ -5,8 +5,8 @@ import {
   resetSelectedCards,
   setSelectedDeparture,
 } from "../../actions/selectedFlight";
-import { CheckoutCard } from "../checkout/CheckoutCard";
-import { CheckoutCardProps } from "../checkout/interfaces/interfaces";
+import { FlightCheckoutCard } from "../checkout/CheckoutCard";
+import { FlightProps } from "../checkout/interfaces/interfaces";
 
 export const CheckDepartureScreen = () => {
   const history = useHistory();
@@ -22,7 +22,7 @@ export const CheckDepartureScreen = () => {
   });
 
   const handleConfirmFlight = () => {
-    history.replace("/check-return");
+    history.push("/check-return");
     dispatch(resetSelectedCards());
     dispatch(setSelectedDeparture(getSelectedFlight));
   };
@@ -42,8 +42,8 @@ export const CheckDepartureScreen = () => {
             passengers,
             returnDate,
             selected,
-          }: CheckoutCardProps) => (
-            <CheckoutCard
+          }: FlightProps) => (
+            <FlightCheckoutCard
               key={id}
               id={id}
               originCity={originCity}

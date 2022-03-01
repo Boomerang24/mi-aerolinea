@@ -6,11 +6,11 @@ export const Navbar = () => {
   const history = useHistory();
 
   const goHome = () => {
-    history.replace("/");
+    history.push("/");
   };
 
   const goCheckout = () => {
-    history.replace("/checkout");
+    history.push("/checkout");
   };
 
   return (
