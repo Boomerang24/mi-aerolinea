@@ -1,11 +1,11 @@
-export interface FlightProps {
+export interface IFlights {
   id?: number;
   originCity: string;
   destinationCity: string;
-  departureDate: string;
+  flightDate: string;
+  roundTrip: boolean;
   flightHour: string;
   ticketPrice: number;
   passengers: number;
-  returnDate?: string;
   selected: boolean;
 }

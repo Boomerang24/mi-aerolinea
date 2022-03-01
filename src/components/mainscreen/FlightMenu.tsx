@@ -28,14 +28,14 @@ export const FlightMenu = () => {
   const goCheckDeparture = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     history.push("/check-departure");
-    const availableFlights = useFlights({
+    const { departureFlights } = useFlights({
       originCity,
       passengers,
       destinationCity,
       departureDate,
       returnDate,
     });
-    dispatch(setAvailableFlights(availableFlights));
+    dispatch(setAvailableFlights(departureFlights));
   };
 
   const handleFlight = (flightType: string) => {

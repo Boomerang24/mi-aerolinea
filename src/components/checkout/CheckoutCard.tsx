@@ -3,13 +3,13 @@ import {
   resetSelectedCards,
   setSelectedCard,
 } from "../../actions/selectedFlight";
-import { FlightProps } from "./interfaces";
+import { IFlights } from "./interfaces";
 
-export const FlightCheckoutCard = ({ ...props }: FlightProps) => {
+export const FlightCheckoutCard = ({ ...props }: IFlights) => {
   const {
     originCity,
     destinationCity,
-    departureDate,
+    flightDate,
     flightHour,
     ticketPrice,
     passengers,
@@ -45,7 +45,7 @@ export const FlightCheckoutCard = ({ ...props }: FlightProps) => {
         <div className="checkoutcard__card-details-wrapper">
           <p>Date of flight</p>
           {/* //TODO: date is static */}
-          <span>{departureDate}</span>
+          <span>{flightDate}</span>
         </div>
         <div className="checkoutcard__card-details-wrapper">
           <p>Time of flight</p>

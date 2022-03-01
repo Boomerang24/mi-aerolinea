@@ -6,12 +6,14 @@ import {
   setSelectedDeparture,
 } from "../../actions/selectedFlight";
 import { FlightCheckoutCard } from "../checkout/CheckoutCard";
-import { FlightProps } from "../checkout/interfaces/interfaces";
+import { IFlights } from "../checkout/interfaces/interfaces";
 
 export const CheckDepartureScreen = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  //TODO: Create store for departureFlights, returnFlights
+  //TODO: dispatch to send Flights to store
   const { availableFlights } = useSelector(
     (state: RootStateOrAny) => state.selectedFlights
   );
@@ -36,23 +38,23 @@ export const CheckDepartureScreen = () => {
             id,
             originCity,
             destinationCity,
-            departureDate,
+            flightDate,
+            roundTrip,
             flightHour,
             ticketPrice,
             passengers,
-            returnDate,
             selected,
-          }: FlightProps) => (
+          }: IFlights) => (
             <FlightCheckoutCard
               key={id}
               id={id}
-              originCity={originCity}
-              destinationCity={destinationCity}
-              departureDate={departureDate}
+              originCity={destinationCity}
+              destinationCity={originCity}
+              flightDate={flightDate}
+              roundTrip={roundTrip}
               flightHour={flightHour}
               ticketPrice={ticketPrice}
               passengers={passengers}
-              returnDate={returnDate}
               selected={selected}
             />
           )

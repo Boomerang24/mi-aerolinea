@@ -1,11 +1,11 @@
 import { SelectedFlightAction } from "../actions/selectedFlight";
-import { FlightProps } from "../components/checkout/interfaces/interfaces";
+import { IFlights } from "../components/checkout/interfaces/interfaces";
 import { types } from "../types";
 
 const initialSelectedFlights = {
   departureFlight: "",
   returnFlight: "",
-  availableFlights: [] as FlightProps[],
+  availableFlights: [] as IFlights[],
 };
 
 export const selectedFlightsReducer = (

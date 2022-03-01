@@ -1,1 +1,1 @@
-export type { FlightProps } from "./interfaces";
+export type { IFlights } from "./interfaces";
