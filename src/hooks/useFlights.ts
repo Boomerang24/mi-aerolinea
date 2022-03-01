@@ -39,8 +39,8 @@ export const useFlights = ({
 
   const returnFlights = flightHours.map((hour, id) => ({
     id: id,
-    originCity: selectedCity[0].name,
-    destinationCity: destinationName[0].name,
+    originCity: destinationName[0].name,
+    destinationCity: selectedCity[0].name,
     flightDate: returnDate,
     roundTrip: true,
     flightHour: hour,

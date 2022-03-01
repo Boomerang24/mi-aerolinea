@@ -44,7 +44,6 @@ export const FlightCheckoutCard = ({ ...props }: IFlights) => {
       <div className="checkoutcard__card-details">
         <div className="checkoutcard__card-details-wrapper">
           <p>Date of flight</p>
-          {/* //TODO: date is static */}
           <span>{flightDate}</span>
         </div>
         <div className="checkoutcard__card-details-wrapper">

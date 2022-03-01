@@ -1,33 +1,33 @@
-import { FlightProps } from "../components/checkout/interfaces";
+import { IFlights } from "../components/checkout/interfaces";
 import { types } from "../types";
 
 export type SelectedFlightAction = {
   type: string;
-  payload: FlightProps;
+  payload: IFlights;
 };
 
-export const setSelectedDeparture = (flight: FlightProps) => {
+export const setSelectedDeparture = (flight: IFlights) => {
   return {
     type: types.selectedDepartureFlight,
     payload: flight,
   };
 };
 
-export const setSelectedReturn = (flight: FlightProps) => {
+export const setSelectedReturn = (flight: IFlights) => {
   return {
     type: types.selectedReturnFlight,
     payload: flight,
   };
 };
 
-export const setAvailableFlights = (flights: FlightProps[]) => {
+export const setAvailableFlights = (flights: IFlights[]) => {
   return {
     type: types.availableFlights,
     payload: flights,
   };
 };
 
-export const setSelectedCard = (card: FlightProps) => ({
+export const setSelectedCard = (card: IFlights) => ({
   type: types.toggleSelectedCard,
   payload: card,
 });

@@ -3,8 +3,10 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   resetSelectedCards,
+  setAvailableFlights,
   setSelectedDeparture,
 } from "../../actions/selectedFlight";
+import { useFlights } from "../../hooks/useFlights";
 import { FlightCheckoutCard } from "../checkout/CheckoutCard";
 import { IFlights } from "../checkout/interfaces/interfaces";
 
@@ -18,6 +20,15 @@ export const CheckDepartureScreen = () => {
     (state: RootStateOrAny) => state.selectedFlights
   );
 
+  const { passengers } = useSelector((state: RootStateOrAny) => state.tickets);
+
+  const { originCity, destinationCity } = useSelector(
+    (state: RootStateOrAny) => state.cities
+  );
+  const { departureDate, returnDate } = useSelector(
+    (state: RootStateOrAny) => state.flightDates
+  );
+
   //TODO: Could be a hook
   const getSelectedFlight = availableFlights.find((flight: any) => {
     return flight.selected === true;
@@ -27,6 +38,14 @@ export const CheckDepartureScreen = () => {
     history.push("/check-return");
     dispatch(resetSelectedCards());
     dispatch(setSelectedDeparture(getSelectedFlight));
+    const { returnFlights } = useFlights({
+      originCity,
+      passengers,
+      destinationCity,
+      departureDate,
+      returnDate,
+    });
+    dispatch(setAvailableFlights(returnFlights));
   };
 
   return (
@@ -48,8 +67,8 @@ export const CheckDepartureScreen = () => {
             <FlightCheckoutCard
               key={id}
               id={id}
-              originCity={destinationCity}
-              destinationCity={originCity}
+              originCity={originCity}
+              destinationCity={destinationCity}
               flightDate={flightDate}
               roundTrip={roundTrip}
               flightHour={flightHour}
