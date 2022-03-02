@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import { resetCities } from "../../actions/cities";
 import { resetDates } from "../../actions/date";
+import { resetSelectedFlights } from "../../actions/selectedFlight";
 import { resetPassengers } from "../../actions/tickets";
 
 import { uiCloseModal } from "../../actions/ui";
@@ -28,9 +29,11 @@ export const CheckoutModal = () => {
 
   const handlePayBtn = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    //TODO: Add validator npm
     Swal.fire("Success", "Completed purchase", "success")
       .then(() => history.push("/"))
-      .then(() => closeModal());
+      .then(() => closeModal())
+      .then(() => dispatch(resetSelectedFlights()));
     dispatch(resetDates());
     dispatch(resetCities());
     dispatch(resetPassengers());

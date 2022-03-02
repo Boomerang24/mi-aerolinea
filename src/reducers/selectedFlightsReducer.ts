@@ -49,6 +49,9 @@ export const selectedFlightsReducer = (
         ),
       };
 
+    case types.resetSelectedFlights:
+      return initialSelectedFlights;
+
     default:
       return state;
   }

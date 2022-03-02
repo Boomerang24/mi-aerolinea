@@ -27,6 +27,10 @@ export const setAvailableFlights = (flights: IFlights[]) => {
   };
 };
 
+export const resetSelectedFlights = () => ({
+  type: types.resetSelectedFlights,
+});
+
 export const setSelectedCard = (card: IFlights) => ({
   type: types.toggleSelectedCard,
   payload: card,
