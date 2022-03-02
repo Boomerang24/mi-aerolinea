@@ -4,6 +4,7 @@ export const types = {
 
   passengersIncrease: "[ticket] Increase Passengers",
   passengersDecrease: "[ticket] Decrease Passengers",
+  resetPassengers: "[ticket] Reset Passengers",
 
   departureDate: "[date] Departure Date",
   returnDate: "[date] Return Date",

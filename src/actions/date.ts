@@ -15,3 +15,5 @@ export const setFlightType = (flight: string): Action<string> => ({
   type: types.flightType,
   payload: flight,
 });
+
+export const resetDates = () => ({ type: types.resetDates });

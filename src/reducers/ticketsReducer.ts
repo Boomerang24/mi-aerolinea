@@ -22,6 +22,9 @@ export const ticketsReducer = (
         passengers: passengers - action.payload,
       };
 
+    case types.resetPassengers:
+      return initialCounter;
+
     default:
       return state;
   }

@@ -18,18 +18,20 @@ export const CheckoutScreen = () => {
 
   return (
     <div className="screen-wrapper">
-      <h1>Current reservations - 2</h1>
+      <h1>Current reservations</h1>
       <div className="checkflightscreen__flights-wrapper disabled">
-        <FlightCheckoutCard {...departureFlight} />
-        <FlightCheckoutCard {...returnFlight} />
+        {departureFlight && <FlightCheckoutCard {...departureFlight} />}
+        {returnFlight && <FlightCheckoutCard {...returnFlight} />}
       </div>
-      <button
-        className={`mainscreen__flight-button ${emptyFlights && `disabled`}`}
-        onClick={toggleModalReducer}
-        disabled={emptyFlights}
-      >
-        Complete Purchase
-      </button>
+      {departureFlight && returnFlight && (
+        <button
+          className={`mainscreen__flight-button ${emptyFlights && `disabled`}`}
+          onClick={toggleModalReducer}
+          disabled={emptyFlights}
+        >
+          Complete Purchase
+        </button>
+      )}
       <CheckoutModal />
     </div>
   );

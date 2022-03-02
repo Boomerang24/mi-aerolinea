@@ -25,3 +25,5 @@ export const setCityType = (cityLocation: string): Action<string | number> => {
     payload: cityLocation,
   };
 };
+
+export const resetCities = () => ({ type: types.resetCities });

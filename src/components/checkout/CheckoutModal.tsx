@@ -3,6 +3,9 @@ import Modal from "react-modal";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import { resetCities } from "../../actions/cities";
+import { resetDates } from "../../actions/date";
+import { resetPassengers } from "../../actions/tickets";
 
 import { uiCloseModal } from "../../actions/ui";
 import { useForm } from "../../hooks/useForm";
@@ -26,8 +29,11 @@ export const CheckoutModal = () => {
   const handlePayBtn = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     Swal.fire("Success", "Completed purchase", "success")
-      .then(() => history.replace("/"))
+      .then(() => history.push("/"))
       .then(() => closeModal());
+    dispatch(resetDates());
+    dispatch(resetCities());
+    dispatch(resetPassengers());
   };
 
   const isEmpty = Object.values(formulario).some((value) => value === "");

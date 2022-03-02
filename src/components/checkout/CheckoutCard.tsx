@@ -61,7 +61,7 @@ export const FlightCheckoutCard = ({ ...props }: IFlights) => {
       </div>
       <hr />
       <div className="checkoutcard__card-summary">
-        <span>Total - $ {total}</span>
+        <span>Total - $ {!ticketPrice ? "0" : total}</span>
       </div>
     </div>
   );
