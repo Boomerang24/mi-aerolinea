@@ -11,6 +11,7 @@ import {
   setDestinationCity,
   setOriginCity,
 } from "../../actions/cities";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,7 +36,9 @@ export const CityPicker = ({ site }: CityPickerProps) => {
   const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
-  const { cityType } = useSelector((state: RootStateOrAny) => state.cities);
+  const { cityType, originCity } = useSelector(
+    (state: RootStateOrAny) => state.cities
+  );
 
   const handleChange = (
     // event: React.ChangeEvent<{ value: string | number }>
@@ -46,6 +49,13 @@ export const CityPicker = ({ site }: CityPickerProps) => {
     setCityCode(value as number);
     if (cityType === "origin") {
       dispatch(setOriginCity(value));
+    }
+    if (originCity !== "" && value === originCity) {
+      Swal.fire(
+        "Error",
+        "Origin and Destination can't be the same city",
+        "error"
+      ).then(() => setCityCode(""));
     } else {
       dispatch(setDestinationCity(value));
     }
