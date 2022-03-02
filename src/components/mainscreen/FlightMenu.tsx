@@ -83,7 +83,7 @@ export const FlightMenu = () => {
           className="mainscreen__flight-button"
           onClick={goCheckDeparture}
         >
-          Search flights{" "}
+          Search flights
           <span>
             <ImAirplane />
           </span>

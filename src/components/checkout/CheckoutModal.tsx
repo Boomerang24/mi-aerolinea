@@ -1,6 +1,9 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import Modal from "react-modal";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
+
 import { uiCloseModal } from "../../actions/ui";
 import { useForm } from "../../hooks/useForm";
 import { modalStyles } from "../../styles/modalStyles";
@@ -8,6 +11,7 @@ import { modalStyles } from "../../styles/modalStyles";
 Modal.setAppElement("#root");
 
 export const CheckoutModal = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { modalOpen } = useSelector((state: RootStateOrAny) => state.ui);
 
@@ -18,6 +22,13 @@ export const CheckoutModal = () => {
       address: "",
       email: "",
     });
+
+  const handlePayBtn = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    Swal.fire("Success", "Completed purchase", "success")
+      .then(() => history.replace("/"))
+      .then(() => closeModal());
+  };
 
   const isEmpty = Object.values(formulario).some((value) => value === "");
 
@@ -85,7 +96,11 @@ export const CheckoutModal = () => {
                 <h2>Total</h2>
                 <h2>$10,000</h2>
               </div>
-              <button className="form-button" disabled={isEmpty}>
+              <button
+                className="form-button"
+                disabled={isEmpty}
+                onClick={handlePayBtn}
+              >
                 Pay Now
               </button>
             </div>
