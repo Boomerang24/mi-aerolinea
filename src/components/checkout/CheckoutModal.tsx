@@ -2,24 +2,24 @@ import React from "react";
 import Modal from "react-modal";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { uiCloseModal } from "../../actions/ui";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
+import { useForm } from "../../hooks/useForm";
+import { modalStyles } from "../../styles/modalStyles";
 
 Modal.setAppElement("#root");
 
 export const CheckoutModal = () => {
   const dispatch = useDispatch();
-
   const { modalOpen } = useSelector((state: RootStateOrAny) => state.ui);
+
+  const { firstName, lastName, address, email, handleChange, formulario } =
+    useForm({
+      firstName: "",
+      lastName: "",
+      address: "",
+      email: "",
+    });
+
+  const isEmpty = Object.values(formulario).some((value) => value === "");
 
   const closeModal = () => {
     dispatch(uiCloseModal());
@@ -30,7 +30,7 @@ export const CheckoutModal = () => {
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={modalStyles}
         contentLabel="Checkout Modal"
       >
         <div className="checkout-wrapper">
@@ -39,37 +39,45 @@ export const CheckoutModal = () => {
             <div className="form-group">
               <label>First Name</label>
               <input
+                value={firstName}
                 type="text"
                 placeholder="Peter"
-                name="firstname"
+                name="firstName"
                 autoComplete="off"
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
               <label>Last Name</label>
               <input
+                value={lastName}
                 type="text"
                 placeholder="Smith"
-                name="lastname"
+                name="lastName"
                 autoComplete="off"
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
               <label>Billing Address</label>
               <input
+                value={address}
                 type="text"
                 placeholder="Street Name and #, Neighborhood, ZipCode, City"
                 name="address"
                 autoComplete="off"
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
               <label>Email</label>
               <input
+                value={email}
                 type="text"
                 placeholder="example@domain.com"
                 name="email"
                 autoComplete="off"
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
@@ -77,7 +85,9 @@ export const CheckoutModal = () => {
                 <h2>Total</h2>
                 <h2>$10,000</h2>
               </div>
-              <button className="form-button">Pay Now</button>
+              <button className="form-button" disabled={isEmpty}>
+                Pay Now
+              </button>
             </div>
           </form>
         </div>

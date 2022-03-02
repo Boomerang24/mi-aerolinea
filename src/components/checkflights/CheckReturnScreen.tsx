@@ -2,6 +2,7 @@ import React from "react";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setSelectedReturn } from "../../actions/selectedFlight";
+import { uiCloseModal } from "../../actions/ui";
 import { FlightCheckoutCard } from "../checkout/CheckoutCard";
 import { IFlights } from "../checkout/interfaces/interfaces";
 
@@ -9,8 +10,6 @@ export const CheckReturnScreen = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  //TODO: Create store for departureFlights, returnFlights
-  //TODO: dispatch to send Flights to store
   const { departureFlight, availableFlights } = useSelector(
     (state: RootStateOrAny) => state.selectedFlights
   );
@@ -22,6 +21,7 @@ export const CheckReturnScreen = () => {
   const goCheckout = () => {
     history.push("/checkout");
     dispatch(setSelectedReturn(getSelectedFlight));
+    dispatch(uiCloseModal());
   };
 
   return (
@@ -47,8 +47,8 @@ export const CheckReturnScreen = () => {
             <FlightCheckoutCard
               key={id}
               id={id}
-              originCity={destinationCity}
-              destinationCity={originCity}
+              originCity={originCity}
+              destinationCity={destinationCity}
               flightDate={flightDate}
               roundTrip={roundTrip}
               flightHour={flightHour}
@@ -60,7 +60,6 @@ export const CheckReturnScreen = () => {
         )}
       </div>
       <button
-        //TODO: create button styles
         className="mainscreen__flight-button checkflightscreen__confirm-button"
         onClick={goCheckout}
       >

@@ -14,8 +14,6 @@ export const CheckDepartureScreen = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  //TODO: Create store for departureFlights, returnFlights
-  //TODO: dispatch to send Flights to store
   const { availableFlights } = useSelector(
     (state: RootStateOrAny) => state.selectedFlights
   );
@@ -28,8 +26,6 @@ export const CheckDepartureScreen = () => {
   const { departureDate, returnDate } = useSelector(
     (state: RootStateOrAny) => state.flightDates
   );
-
-  //TODO: Could be a hook
   const getSelectedFlight = availableFlights.find((flight: any) => {
     return flight.selected === true;
   });
@@ -80,7 +76,6 @@ export const CheckDepartureScreen = () => {
         )}
       </div>
       <button
-        //TODO: create button styles
         className="mainscreen__flight-button checkflightscreen__confirm-button"
         onClick={handleConfirmFlight}
       >

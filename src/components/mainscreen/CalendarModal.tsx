@@ -2,18 +2,8 @@ import React, { FC } from "react";
 import Modal from "react-modal";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { uiCloseModal } from "../../actions/ui";
+import { modalStyles } from "../../styles/modalStyles";
 import { DatePicker } from "./DatePicker";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
 
 Modal.setAppElement("#root");
 
@@ -31,7 +21,7 @@ export const CalendarModal: FC = () => {
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={modalStyles}
         contentLabel="Calendar Modal"
       >
         <div className="checkout-wrapper">

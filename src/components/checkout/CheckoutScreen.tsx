@@ -10,6 +10,8 @@ export const CheckoutScreen = () => {
     (state: RootStateOrAny) => state.selectedFlights
   );
 
+  const emptyFlights = departureFlight === "" && returnFlight === "";
+
   const toggleModalReducer = () => {
     dispatch(uiOpenModal());
   };
@@ -17,14 +19,14 @@ export const CheckoutScreen = () => {
   return (
     <div className="screen-wrapper">
       <h1>Current reservations - 2</h1>
-      <div className="checkflightscreen__flights-wrapper">
+      <div className="checkflightscreen__flights-wrapper disabled">
         <FlightCheckoutCard {...departureFlight} />
         <FlightCheckoutCard {...returnFlight} />
       </div>
       <button
-        //TODO: create button styles
-        className="mainscreen__flight-button"
+        className={`mainscreen__flight-button ${emptyFlights && `disabled`}`}
         onClick={toggleModalReducer}
+        disabled={emptyFlights}
       >
         Complete Purchase
       </button>
