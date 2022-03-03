@@ -1,13 +1,13 @@
 import React, { MouseEvent } from "react";
-import Modal from "react-modal";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Modal from "react-modal";
 import Swal from "sweetalert2";
+
 import { resetCities } from "../../actions/cities";
 import { resetDates } from "../../actions/date";
 import { resetSelectedFlights } from "../../actions/selectedFlight";
 import { resetPassengers } from "../../actions/tickets";
-
 import { uiCloseModal } from "../../actions/ui";
 import { useForm } from "../../hooks/useForm";
 import { modalStyles } from "../../styles/modalStyles";
@@ -103,6 +103,7 @@ export const CheckoutModal = () => {
             <div className="form-group">
               <div className="form-total">
                 <h2>Total</h2>
+                {/* //TODO: Get grand total from store */}
                 <h2>$10,000</h2>
               </div>
               <button

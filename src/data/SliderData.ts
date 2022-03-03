@@ -1,27 +1,27 @@
 export const SliderData = [
   {
     image:
-      "https://images.unsplash.com/photo-1527685609591-44b0aef2400b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80",
-    alt: "boat",
+      "https://res.cloudinary.com/alexrcloud/image/upload/v1646294783/beaches/Mexico_cancun_caribbean_shore_sky-High_Quality_HD_Wallpaper_1366x768_v4mtim.jpg",
+    alt: "cancun_caribbean_shore",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1644351032803-9c6f42458ea7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1371&q=80",
-    alt: "mountains",
+      "https://res.cloudinary.com/alexrcloud/image/upload/v1646294746/beaches/cancun-mexico-beach-ocean-sand_zkvwuo.jpg",
+    alt: "cancun-mexico-beach",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1644326347286-ebf73a959c41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    alt: "twilight",
+      "https://res.cloudinary.com/alexrcloud/image/upload/v1646294958/beaches/Acapulco_beach_mcznll.jpg",
+    alt: "acapulco_beach",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1644164935217-46328ef58943?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    alt: "night-mountain",
+      "https://res.cloudinary.com/alexrcloud/image/upload/v1646295055/beaches/Veracruz_beach_kgcovd.jpg",
+    alt: "veracruz_beach",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1643443026948-c17b9bb16758?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    alt: "bubbles",
+      "https://res.cloudinary.com/alexrcloud/image/upload/v1646295119/beaches/Ixtapa_beach_oy8aaf.jpg",
+    alt: "ixtapa_beach",
   },
 ];

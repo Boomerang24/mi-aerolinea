@@ -16,8 +16,6 @@ export const CheckoutScreen = () => {
     dispatch(uiOpenModal());
   };
 
-  console.log(departureFlight.ticketPrice);
-
   return (
     <div className="screen-wrapper">
       <h1>Current reservations</h1>
