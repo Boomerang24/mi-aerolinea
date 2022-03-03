@@ -1,7 +1,8 @@
-import { Action } from "../actions/interfaces";
+import { Action, ICity } from "../actions/interfaces";
 import { types } from "../types";
 
 const initialCities = {
+  availableCities: [] as ICity[],
   originCity: "",
   destinationCity: "",
   cityType: null,
@@ -9,9 +10,15 @@ const initialCities = {
 
 export const citiesReducer = (
   state = initialCities,
-  action: Action<string | number>
+  action: Action<(string | number)[]>
 ) => {
   switch (action.type) {
+    case types.loadCities:
+      return {
+        ...state,
+        availableCities: [...action.payload],
+      };
+
     case types.originCity:
       return {
         ...state,

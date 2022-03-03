@@ -39,4 +39,14 @@ export const cities = [
     name: "Guadalajara",
     ticketPrice: 950,
   },
+  {
+    id: 90,
+    name: "Chicago",
+    ticketPrice: 3400,
+  },
+  {
+    id: 100,
+    name: "Mazatlan",
+    ticketPrice: 1350,
+  },
 ];

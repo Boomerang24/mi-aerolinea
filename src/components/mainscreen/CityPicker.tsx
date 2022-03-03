@@ -4,7 +4,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { cities } from "../../data/citiesData";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import {
   setCityType,
@@ -12,6 +11,7 @@ import {
   setOriginCity,
 } from "../../actions/cities";
 import Swal from "sweetalert2";
+import { ICity } from "../../actions/interfaces";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,7 +36,7 @@ export const CityPicker = ({ site }: CityPickerProps) => {
   const [open, setOpen] = useState(false);
 
   const dispatch = useDispatch();
-  const { cityType, originCity } = useSelector(
+  const { availableCities, cityType, originCity } = useSelector(
     (state: RootStateOrAny) => state.cities
   );
 
@@ -70,8 +70,6 @@ export const CityPicker = ({ site }: CityPickerProps) => {
     dispatch(setCityType(site));
   };
 
-  const filteredCities = cities.filter((city) => city.name !== "Cancun");
-
   return (
     <div>
       <FormControl className={classes.formControl}>
@@ -85,7 +83,7 @@ export const CityPicker = ({ site }: CityPickerProps) => {
           value={cityCode}
           onChange={(e) => handleChange(e)}
         >
-          {filteredCities.map((city) => (
+          {availableCities.map((city: ICity) => (
             <MenuItem key={city.id} value={city.id}>
               {city.name}
             </MenuItem>

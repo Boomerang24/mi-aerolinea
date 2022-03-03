@@ -11,6 +11,7 @@ export const types = {
   flightType: "[date] Set Flight Type",
   resetDates: "[date] Reset Dates",
 
+  loadCities: "[city] Load Cities from FireStore",
   originCity: "[city] Origin City",
   destinationCity: "[city] Destination City",
   cityType: "[city] Set City Type",

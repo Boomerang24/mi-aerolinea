@@ -25,6 +25,7 @@ export const FlightMenu = () => {
     (state: RootStateOrAny) => state.flightDates
   );
 
+  //TODO: Add validation to button before click
   const goCheckDeparture = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     history.push("/check-departure");

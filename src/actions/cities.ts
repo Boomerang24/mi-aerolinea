@@ -1,5 +1,20 @@
+import { loadCities } from "../helpers/loadCities";
 import { types } from "../types";
 import { Action } from "./interfaces";
+
+export const startLoadingCities = () => {
+  return async (dispatch: any) => {
+    //TODO: Check dispatch type
+    // : (arg0: { type: string; payload: ICity[] }) => void
+    const storeCities = await loadCities();
+    dispatch(setCities(storeCities));
+  };
+};
+
+const setCities = (citiesId: { id: string }[]) => ({
+  type: types.loadCities,
+  payload: citiesId,
+});
 
 export const setOriginCity = (
   city: string | number
