@@ -6,7 +6,6 @@ import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { CalendarModal } from "./CalendarModal";
 import { CityPicker } from "./CityPicker";
 import { PassengersButtons } from "./PassengersButtons";
-
 import { uiOpenModal } from "../../actions/ui";
 import { setFlightType } from "../../actions/date";
 import { useFlights } from "../../hooks/useFlights";
