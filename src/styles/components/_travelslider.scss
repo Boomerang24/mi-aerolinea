@@ -4,13 +4,16 @@
   width: 100%;
 
   @media (max-width: $breakpoint-medium) {
-    width: 90%;
-    margin: auto;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: fit-content;
+    width: 18em;
   }
 
   @media (max-width: $breakpoint-small) {
-    width: 90%;
     margin: auto;
+    width: 24em;
   }
 }
 
