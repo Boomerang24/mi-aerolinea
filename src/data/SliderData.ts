@@ -1,4 +1,4 @@
-export const SliderData = [
+export const sliderData = [
   {
     image:
       "https://res.cloudinary.com/alexrcloud/image/upload/v1646294783/beaches/Mexico_cancun_caribbean_shore_sky-High_Quality_HD_Wallpaper_1366x768_v4mtim.jpg",

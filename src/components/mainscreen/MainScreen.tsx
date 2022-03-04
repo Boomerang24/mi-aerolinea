@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { SliderData } from "../../data/sliderData";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
+
 import { PopularDestinations } from "./PopularDestinations";
 import { FlightMenu } from "./FlightMenu";
 import { TravelSlider } from "./TravelSlider";
-import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { startLoadingCities } from "../../actions/cities";
+import { sliderData } from "../../data/sliderData";
 
 export const MainScreen = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const MainScreen = () => {
     <>
       <div className="mainscreen__searchflight">
         <FlightMenu />
-        <TravelSlider slides={SliderData} />
+        <TravelSlider slides={sliderData} />
       </div>
       <PopularDestinations />
     </>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -40,11 +41,7 @@ export const CityPicker = ({ site }: CityPickerProps) => {
     (state: RootStateOrAny) => state.cities
   );
 
-  const handleChange = (
-    // event: React.ChangeEvent<{ value: string | number }>
-    //TODO: Check event type
-    event: any
-  ) => {
+  const handleChange = (event: any) => {
     const { value } = event.target;
     setCityCode(value as number);
     if (cityType === "origin") {
