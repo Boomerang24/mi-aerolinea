@@ -3,9 +3,9 @@ import { types } from "../types";
 import { Action } from "./interfaces";
 
 export const startLoadingCities = () => {
-  return async (dispatch: any) => {
-    //TODO: Check dispatch type
-    // : (arg0: { type: string; payload: ICity[] }) => void
+  return async (
+    dispatch: (arg0: { type: string; payload: { id: string }[] }) => void
+  ) => {
     const storeCities = await loadCities();
     dispatch(setCities(storeCities));
   };

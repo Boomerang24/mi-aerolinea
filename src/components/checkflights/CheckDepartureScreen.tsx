@@ -26,7 +26,7 @@ export const CheckDepartureScreen = () => {
   const { departureDate, returnDate } = useSelector(
     (state: RootStateOrAny) => state.flightDates
   );
-  const getSelectedFlight = availableFlights.find((flight: any) => {
+  const getSelectedFlight = availableFlights.find((flight: IFlights) => {
     return flight.selected === true;
   });
 

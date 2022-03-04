@@ -14,7 +14,7 @@ export const CheckReturnScreen = () => {
     (state: RootStateOrAny) => state.selectedFlights
   );
 
-  const getSelectedFlight = availableFlights.find((flight: any) => {
+  const getSelectedFlight = availableFlights.find((flight: IFlights) => {
     return flight.selected === true;
   });
 
