@@ -1,32 +1,42 @@
-.travelslider__gallery{
-    position: relative;
-    display: inline-block;
-    width: 100%;
+.travelslider__gallery {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  @media (max-width: $breakpoint-medium) {
+    width: 90%;
+    margin: auto;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    width: 90%;
+    margin: auto;
+  }
 }
 
-.travelslider__img-slider{
-    width: 100%;
-    height: 600px;
-    border-radius: 10px;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center;
+.travelslider__img-slider {
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
 }
 
 .travelslider__buttons {
-    position: absolute;
-    top: 90%;
-    margin: auto;
-    right: 0;
-    left: 0;
-    color: white;
-    font-size: 25px;
+  position: absolute;
+  top: 90%;
+  margin: auto;
+  right: 0;
+  left: 0;
+  color: white;
+  font-size: 25px;
 }
 
-.travelslider__right-buttons{
-    left: 40px;
+.travelslider__right-buttons {
+  left: 40px;
 }
 
-.travelslider__left-buttons{
-    right: 40px;
+.travelslider__left-buttons {
+  right: 40px;
 }
