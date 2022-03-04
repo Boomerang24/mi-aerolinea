@@ -7,13 +7,14 @@
     display: flex;
     align-content: center;
     flex-direction: column;
+    margin: auto;
     width: fit-content;
-    width: 18em;
+    width: 38em;
   }
 
   @media (max-width: $breakpoint-small) {
     margin: auto;
-    width: 24em;
+    width: 20em;
   }
 }
 

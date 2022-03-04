@@ -10,6 +10,7 @@ import { uiOpenModal } from "../../actions/ui";
 import { setFlightType } from "../../actions/date";
 import { useFlights } from "../../hooks/useFlights";
 import { setAvailableFlights } from "../../actions/selectedFlight";
+import Swal from "sweetalert2";
 
 export const FlightMenu = () => {
   const dispatch = useDispatch();
@@ -24,18 +25,33 @@ export const FlightMenu = () => {
     (state: RootStateOrAny) => state.flightDates
   );
 
-  //TODO: Add validation to button before click
+  const currentFlightInfo = {
+    originCity,
+    passengers,
+    destinationCity,
+    departureDate,
+    returnDate,
+  };
+
+  const flightInfoIncomplete = Object.values(currentFlightInfo).some(
+    (value) => value === ""
+  );
+
   const goCheckDeparture = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    history.push("/check-departure");
-    const { departureFlights } = useFlights({
-      originCity,
-      passengers,
-      destinationCity,
-      departureDate,
-      returnDate,
-    });
-    dispatch(setAvailableFlights(departureFlights));
+    if (flightInfoIncomplete) {
+      Swal.fire("Error", "Please fill all the flight information", "error");
+    } else {
+      history.push("/check-departure");
+      const { departureFlights } = useFlights({
+        originCity,
+        passengers,
+        destinationCity,
+        departureDate,
+        returnDate,
+      });
+      dispatch(setAvailableFlights(departureFlights));
+    }
   };
 
   const handleFlight = (flightType: string) => {
@@ -82,6 +98,7 @@ export const FlightMenu = () => {
         <button
           className="mainscreen__flight-button"
           onClick={goCheckDeparture}
+          // disabled={flightInfoIncomplete}
         >
           Search flights
           <span>

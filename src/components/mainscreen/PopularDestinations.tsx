@@ -1,3 +1,4 @@
+import { sliderData } from "../../data/sliderData";
 import { DestinationCard } from "./DestinationCard";
 
 export const PopularDestinations = () => {
@@ -6,10 +7,9 @@ export const PopularDestinations = () => {
       <h1>Popular destinations right now</h1>
       <br />
       <div className="destinationcards-wrapper">
-        <DestinationCard />
-        <DestinationCard />
-        <DestinationCard />
-        <DestinationCard />
+        {sliderData.map((card, id) => (
+          <DestinationCard key={id} image={card.image} name={card.name} />
+        ))}
       </div>
     </div>
   );
