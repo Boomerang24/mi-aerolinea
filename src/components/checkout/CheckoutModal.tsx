@@ -29,7 +29,6 @@ export const CheckoutModal = () => {
 
   const handlePayBtn = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    //TODO: Add validator npm
     Swal.fire("Success", "Completed purchase", "success")
       .then(() => history.push("/"))
       .then(() => closeModal())

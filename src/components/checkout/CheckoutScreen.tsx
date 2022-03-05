@@ -23,7 +23,7 @@ export const CheckoutScreen = () => {
         {departureFlight && <FlightCheckoutCard {...departureFlight} />}
         {returnFlight && <FlightCheckoutCard {...returnFlight} />}
       </div>
-      {departureFlight && returnFlight && (
+      {departureFlight && (
         <button
           className={`mainscreen__flight-button ${emptyFlights && `disabled`}`}
           onClick={toggleModalReducer}

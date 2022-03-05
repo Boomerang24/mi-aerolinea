@@ -1,16 +1,34 @@
 import { FaLuggageCart } from "react-icons/fa";
 import { MdOutlineAirplaneTicket } from "react-icons/md";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
+import { resetCities } from "../../actions/cities";
+import { resetDates } from "../../actions/date";
+import { resetSelectedFlights } from "../../actions/selectedFlight";
+import { resetPassengers } from "../../actions/tickets";
 
 export const Navbar = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { departureFlight, returnFlight } = useSelector(
+    (state: RootStateOrAny) => state.selectedFlights
+  );
 
   const goHome = () => {
     history.push("/");
+    dispatch(resetDates());
+    dispatch(resetCities());
+    dispatch(resetPassengers());
+    dispatch(resetSelectedFlights());
   };
 
   const goCheckout = () => {
-    history.push("/checkout");
+    if (departureFlight === "" && returnFlight === "") {
+      Swal.fire("", "There are no current reservations", "info");
+    } else {
+      history.push("/checkout");
+    }
   };
 
   return (

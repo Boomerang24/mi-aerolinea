@@ -30,7 +30,6 @@ export const FlightMenu = () => {
     passengers,
     destinationCity,
     departureDate,
-    returnDate,
   };
 
   const flightInfoIncomplete = Object.values(currentFlightInfo).some(

@@ -31,17 +31,21 @@ export const CheckDepartureScreen = () => {
   });
 
   const handleConfirmFlight = () => {
-    history.push("/check-return");
-    dispatch(resetSelectedCards());
+    if (returnDate === "") {
+      history.push("/checkout");
+    } else {
+      history.push("/check-return");
+      dispatch(resetSelectedCards());
+      const { returnFlights } = useFlights({
+        originCity,
+        passengers,
+        destinationCity,
+        departureDate,
+        returnDate,
+      });
+      dispatch(setAvailableFlights(returnFlights));
+    }
     dispatch(setSelectedDeparture(getSelectedFlight));
-    const { returnFlights } = useFlights({
-      originCity,
-      passengers,
-      destinationCity,
-      departureDate,
-      returnDate,
-    });
-    dispatch(setAvailableFlights(returnFlights));
   };
 
   return (
