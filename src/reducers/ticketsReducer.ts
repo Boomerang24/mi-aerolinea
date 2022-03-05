@@ -3,6 +3,9 @@ import { Action } from "../actions/interfaces";
 
 export const initialCounter = {
   passengers: 1,
+  departureTotal: 0,
+  returnTotal: 0,
+  totalToPay: 0,
 };
 
 export const ticketsReducer = (

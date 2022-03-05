@@ -36,4 +36,8 @@ export const setSelectedCard = (card: IFlights) => ({
   payload: card,
 });
 
+export const deleteDepartureCard = () => ({ type: types.deleteDepartureCard });
+
+export const deleteReturnCard = () => ({ type: types.deleteReturnCard });
+
 export const resetSelectedCards = () => ({ type: types.resetSelectedCards });

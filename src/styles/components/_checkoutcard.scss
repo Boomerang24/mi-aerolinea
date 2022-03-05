@@ -31,11 +31,41 @@
 
 .checkoutcard__card-summary {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   font-weight: bolder;
   margin-top: 1em;
 }
 
 .checkoutcard__selected-card {
   background-color: $primary;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 7px 10px 7px 10px;
+
+  transition: color 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: darken($color: white, $amount: 20);
+  }
+}
+
+.btn-danger {
+  background-color: red;
+
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($color: red, $amount: 10);
+  }
 }

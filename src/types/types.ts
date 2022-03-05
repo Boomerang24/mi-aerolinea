@@ -23,5 +23,7 @@ export const types = {
   resetSelectedFlights: "[flight] Reset Selected Flights",
 
   toggleSelectedCard: "[card] Toggle Selected Attribute In Card",
+  deleteDepartureCard: "[card] Delete Departure Card",
+  deleteReturnCard: "[card] Delete Return Card",
   resetSelectedCards: "[card] Resets all CheckoutCards to false",
 };

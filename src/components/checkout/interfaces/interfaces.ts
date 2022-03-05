@@ -8,4 +8,5 @@ export interface IFlights {
   ticketPrice: number;
   passengers: number;
   selected: boolean;
+  deleteCard?: boolean;
 }

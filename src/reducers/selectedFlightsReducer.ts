@@ -41,6 +41,18 @@ export const selectedFlightsReducer = (
         ),
       };
 
+    case types.deleteDepartureCard:
+      return {
+        ...state,
+        departureFlight: "",
+      };
+
+    case types.deleteReturnCard:
+      return {
+        ...state,
+        returnFlight: "",
+      };
+
     case types.resetSelectedCards:
       return {
         ...state,

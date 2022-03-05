@@ -1,11 +1,17 @@
-import { useDispatch } from "react-redux";
+import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
 import {
+  deleteDepartureCard,
+  deleteReturnCard,
   resetSelectedCards,
   setSelectedCard,
 } from "../../actions/selectedFlight";
 import { IFlights } from "./interfaces";
 
 export const FlightCheckoutCard = ({ ...props }: IFlights) => {
+  const { departureFlight } = useSelector(
+    (state: RootStateOrAny) => state.selectedFlights
+  );
+
   const {
     originCity,
     destinationCity,
@@ -14,11 +20,20 @@ export const FlightCheckoutCard = ({ ...props }: IFlights) => {
     ticketPrice,
     passengers,
     selected,
+    deleteCard,
   } = props;
 
   const total = ticketPrice * passengers;
 
   const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    if (departureFlight !== "") {
+      dispatch(deleteDepartureCard());
+    } else {
+      dispatch(deleteReturnCard());
+    }
+  };
 
   const handleClick = () => {
     dispatch(resetSelectedCards());
@@ -61,6 +76,11 @@ export const FlightCheckoutCard = ({ ...props }: IFlights) => {
       </div>
       <hr />
       <div className="checkoutcard__card-summary">
+        {deleteCard && (
+          <button className="btn btn-danger" onClick={handleDelete}>
+            Delete Flight
+          </button>
+        )}
         <span>Total - $ {!ticketPrice ? "0" : total}</span>
       </div>
     </div>
