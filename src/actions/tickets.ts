@@ -12,3 +12,8 @@ export const doPassengerDecrease = (value: number): Action<number> => ({
 });
 
 export const resetPassengers = () => ({ type: types.resetPassengers });
+
+export const totalTicketPrice = (total: number) => ({
+  type: types.totalTicketPrice,
+  payload: total,
+});

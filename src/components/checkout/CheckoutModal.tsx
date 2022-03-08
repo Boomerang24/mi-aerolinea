@@ -18,6 +18,7 @@ export const CheckoutModal = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { modalOpen } = useSelector((state: RootStateOrAny) => state.ui);
+  const { totalToPay } = useSelector((state: RootStateOrAny) => state.tickets);
 
   const { firstName, lastName, address, email, handleChange, formulario } =
     useForm({
@@ -102,8 +103,7 @@ export const CheckoutModal = () => {
             <div className="form-group">
               <div className="form-total">
                 <h2>Total</h2>
-                {/* //TODO: Get grand total from store */}
-                <h2>$10,000</h2>
+                <h2>{`$ ${totalToPay}`}</h2>
               </div>
               <button
                 className="form-button"

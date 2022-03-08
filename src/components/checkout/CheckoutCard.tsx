@@ -11,6 +11,7 @@ export const FlightCheckoutCard = ({ ...props }: IFlights) => {
   const { departureFlight } = useSelector(
     (state: RootStateOrAny) => state.selectedFlights
   );
+  const dispatch = useDispatch();
 
   const {
     originCity,
@@ -24,8 +25,6 @@ export const FlightCheckoutCard = ({ ...props }: IFlights) => {
   } = props;
 
   const total = ticketPrice * passengers;
-
-  const dispatch = useDispatch();
 
   const handleDelete = () => {
     if (departureFlight !== "") {
